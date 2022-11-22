@@ -3,10 +3,10 @@ from homework_02 import exceptions
 
 
 class Vehicle(ABC):
-    weight = int
-    fuel = int
-    fuel_consumption = int
-    started = bool
+    weight = None
+    fuel = None
+    fuel_consumption = None
+    started = None
 
     def __init__(self, weight, fuel, fuel_consumption, started = False):
         self.weight = weight

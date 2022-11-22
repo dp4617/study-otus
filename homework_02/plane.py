@@ -6,8 +6,8 @@ from homework_02.base import Vehicle
 
 
 class Plane(Vehicle):
-    cargo = int
-    max_cargo = int
+    cargo = None
+    max_cargo = None
 
     def __init__(self, weight, fuel, fuel_consumption, max_cargo, cargo=0):
         Vehicle.__init__(self, weight=weight, fuel=fuel, fuel_consumption=fuel_consumption)
