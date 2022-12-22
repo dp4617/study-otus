@@ -16,19 +16,22 @@ import asyncio
 from typing import List
 
 from sqlalchemy.ext.asyncio import AsyncEngine, AsyncSession, create_async_engine
-from sqlalchemy.orm import sessionmaker
+from sqlalchemy.orm import sessionmaker, declarative_base
 from homework_04 import config
 from homework_04.jsonplaceholder_requests import get_users, get_posts
-
+from models.base import Base
 from models import User, Post
-from models.base import Base, Session, engine
+
+
+
+
 
 async_engine: AsyncEngine = create_async_engine(
     url=config.DB_ASYNC_URL,
     echo=config.DB_ECHO,
 )
 
-async_session = sessionmaker(
+Session = sessionmaker(
     async_engine,
     class_=AsyncSession,
     expire_on_commit=False,
@@ -64,7 +67,7 @@ async def add_users():
         fetch_users_data(),
         fetch_posts_data(),
     )
-    async with async_session() as session:  # type: AsyncSession
+    async with Session() as session:
         async with session.begin():
             session.add_all(users_data + posts_data)
 

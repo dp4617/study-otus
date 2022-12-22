@@ -1,3 +1,3 @@
 from .user import User
 from .post import Post
-from .base import Base, Session
+from .base import Base
