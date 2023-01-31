@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    About
+{% endblock %}
+
+{% block body %}
+    <h1>
+        About project
+    </h1>
+<p>
+This project is made for uploading images of something nice or beautiful in your life.
+It can be everything, sky, building, painting, also your cat.
+</p>
+    <a href="{{ url_for('home') }}">Back to home page</a>
+{% endblock %}
