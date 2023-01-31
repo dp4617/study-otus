@@ -17,10 +17,10 @@ from typing import List
 
 from sqlalchemy.ext.asyncio import AsyncEngine, AsyncSession, create_async_engine
 from sqlalchemy.orm import sessionmaker, declarative_base
-from homework_04 import config
+from homework_04 import models
 from homework_04.jsonplaceholder_requests import get_users, get_posts
-from models.base import Base
-from models import User, Post
+from list_of_models.base import Base
+from list_of_models import User, Post
 
 
 
