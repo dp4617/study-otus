@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+    Cards list
+{% endblock %}
+
+{% block body %}
+    <h1>Cards:</h1>
+    <div>
+        <ul>
+            {% for card in cards %}
+                <li>
+                    <a href="{{ url_for("cards_app.details", card_id=card.id) }}">{{ card.name }} </a>
+                </li>
+            {% endfor %}
+        </ul>
+    <div>
+        <a href="{{ url_for('cards_app.add') }}">Add new card</a>
+    </div>
+    </div>
+{% endblock %}

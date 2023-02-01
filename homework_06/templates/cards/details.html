@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Card {{ card.name }}
+{% endblock %}
+
+{% block body %}
+    <h1>День</h1>
+    <div>
+        {{ card.name }}
+    </div>
+    <div>
+        <form method="post">
+            <label for="update-name">Update card name with</label>
+            <input
+                    id="update-name"
+                    type="text"
+                    name="card-name"
+                    value="{{ card.name }}"
+                    required>
+            <button class="btn btn-primary" type="submit">Update</button>
+        </form>
+    </div>
+    <div>
+    <a href="{{ url_for("cards_app.list") }}">Back to all cards</a>
+    </div>
+{% endblock %}
