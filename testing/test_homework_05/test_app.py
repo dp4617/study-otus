@@ -1,6 +1,6 @@
 import pytest
 
-module_app = pytest.importorskip("homework_05.app")
+module_app = pytest.importorskip("homework_05")
 
 
 @pytest.fixture
