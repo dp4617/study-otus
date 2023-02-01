@@ -18,7 +18,7 @@ PG_CONN_URL = "postgresql+asyncpg://username:passwd!@localhost/hw4"
 
 engine = create_async_engine(PG_CONN_URL, echo=False)
 
-Base = declarative_base()
+Base = declarative_base(bind=engine)
 
 Session = sessionmaker(
     engine,
