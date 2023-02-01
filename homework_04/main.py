@@ -1,5 +1,5 @@
 """
-Домашнее задание №4
+Домашнее задание №3
 Асинхронная работа с сетью и бд
 
 доработайте функцию main, по вызову которой будет выполняться полный цикл программы
@@ -15,31 +15,15 @@
 import asyncio
 from typing import List
 
-from sqlalchemy.ext.asyncio import AsyncEngine, AsyncSession, create_async_engine
-from sqlalchemy.orm import sessionmaker, declarative_base
-from homework_04 import models
-from homework_04.jsonplaceholder_requests import get_users, get_posts
-from list_of_models.base import Base
-from list_of_models import User, Post
+from sqlalchemy import select
+from sqlalchemy.ext.asyncio import async_session, AsyncSession
 
+from jsonplaceholder_requests import get_users, get_posts
+from models import engine, Base, User, Post, Session
 
-
-
-
-async_engine: AsyncEngine = create_async_engine(
-    url=config.DB_ASYNC_URL,
-    echo=config.DB_ECHO,
-)
-
-Session = sessionmaker(
-    async_engine,
-    class_=AsyncSession,
-    expire_on_commit=False,
-    # expire_on_commit=True,
-)
 
 async def create_tables():
-    async with async_engine.begin() as conn:
+    async with engine.begin() as conn:
         await conn.run_sync(Base.metadata.drop_all)
         await conn.run_sync(Base.metadata.create_all)
 
@@ -61,8 +45,6 @@ async def fetch_posts_data() -> List[Post]:
 
 
 async def add_users():
-    # users_data: List[dict]
-    # posts_data: List[dict]
     users_data, posts_data = await asyncio.gather(
         fetch_users_data(),
         fetch_posts_data(),
