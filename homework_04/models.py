@@ -6,6 +6,7 @@
 для модели User обязательными являются name, username, email
 для модели Post обязательными являются user_id, title, body
 создайте связи relationship между моделями: User.posts и Post.user
+sdf
 """
 
 import os
