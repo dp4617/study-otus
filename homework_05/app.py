@@ -11,19 +11,19 @@
 в навигационную панель добавьте ссылки на главную страницу / и на страницу /about/ при помощи url_for
 """
 
-from flask import Flask, render_template
+import flask
+
+app = flask.Flask(__name__)
 
 
-app = Flask(__name__)
-
-@app.route('/', endpoint='home')
-def get_to_home():
-    return render_template('home.html')
+@app.route("/")
+def index():
+    return flask.render_template('index.html')
 
 
-@app.route('/about/', endpoint='about')
-def get_about_info():
-    return render_template('about.html')
+@app.route("/about/")
+def about():
+    return flask.render_template('about.html')
 
 
 if __name__ == '__main__':
