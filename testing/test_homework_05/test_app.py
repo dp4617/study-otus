@@ -1,6 +1,7 @@
+
 import pytest
 
-module_app = pytest.importorskip("homework_05")
+module_app = pytest.importorskip("homework_05.app")
 
 
 @pytest.fixture
@@ -8,7 +9,7 @@ def client():
     try:
         app = module_app.app
     except AttributeError:
-        raise pytest.fail("skip testing homework_05 due to lack of Flask `app` in the `app.py`")
+        raise pytest.fail("skip testing homework_04 due to lack of Flask `app` in the `app.py`")
 
     app.config['TESTING'] = True
 
