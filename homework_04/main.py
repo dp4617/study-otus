@@ -1,5 +1,5 @@
 """
-Домашнее задание №3
+Домашнее задание №4
 Асинхронная работа с сетью и бд
 
 доработайте функцию main, по вызову которой будет выполняться полный цикл программы
@@ -14,7 +14,7 @@
 """
 import asyncio
 
-from homework_03.models import create_tables, add_users, add_posts
+from homework_04.models import create_tables, add_users, add_posts
 from jsonplaceholder_requests import fetch_json, POSTS_DATA_URL, USERS_DATA_URL
 
 
